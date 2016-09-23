@@ -6,6 +6,7 @@ class SyntaxAnalyzer {
   val ARTICLES : List[String] = List("teh", "a")
   val VERBS : List[String] = List("ates", "lovez", "hatez")
   val NOUNS : List[String] = List("kat", "dawg", "rat")
+  val ADJ : List[String] = List("fat", "hungry", "happy", "mean")
 
   // Flag for errors and helper methods
   var errorFound : Boolean = false
@@ -22,10 +23,12 @@ class SyntaxAnalyzer {
     if(!errorFound) NounPhrase()
   }
 
-  // This method implements the BNF rule for a noun phrase <NP> ::= <A> <N>
+  // This method implements the BNF rule for a noun phrase <NP> ::= <A> <Adj> <N>
   def NounPhrase() = {
     if(!errorFound) Article()
+    if(!errorFound) Adj()
     if(!errorFound) Noun()
+
   }
 
   // This method implements the BNF rule for a verb <V> ::= ates | hatez | hatez
@@ -56,5 +59,16 @@ class SyntaxAnalyzer {
         println("SYNTAX ERROR - An article was expected when '" + Compiler.currentToken + "' was found.")
         setError()
       }
+  }
+
+  //Method impletments the BNF rule for an adjective
+  def Adj() = {
+    if (ADJ contains Compiler.currentToken) {
+      Compiler.Scanner.getNextToken()
+    }
+    else {
+      println("Syntax ERROR - An adjective was expected when '" + Compiler.currentToken + "' was found.")
+      setError()
+    }
   }
 }

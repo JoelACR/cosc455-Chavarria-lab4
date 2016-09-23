@@ -68,6 +68,7 @@ public class LexicalAnalyzer {
         lexems.add("\n");lexems.add("teh"); lexems.add("a");
         lexems.add("dawg"); lexems.add("kat"); lexems.add("rat");
         lexems.add("ates"); lexems.add("lovez"); lexems.add("hatez");
+		lexems.add("fat"); lexems.add("hungry"); lexems.add("happy"); lexems.add("mean");
     }
 
     private boolean lookup(String candidateToken){
@@ -88,7 +89,8 @@ public class LexicalAnalyzer {
 	
 	// A helper method to determine if the current character is a space.
 	private boolean isSpace(char c){
-        return c == ' ';
+
+		return c == ' ';
 	}
 	
 	// A helper method to get the next non-blank character.

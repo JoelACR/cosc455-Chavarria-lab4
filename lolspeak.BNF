@@ -3,3 +3,5 @@
 <verb>	 	    ::=	lovez  |  hatez  | ates
 <noun>	 	    ::=	dawg  |  kat  |  rat
 <article>	    ::=	a  | teh
+<adjective>     ::= fat | hungry | happy | mean
+
